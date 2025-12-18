@@ -1,15 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
-
-interface SkillCardProps {
-    name: string;
-    icon?: ReactNode;
-    level?: "beginner" | "intermediate" | "advanced" | "expert";
-    description?: string;
-    index?: number;
-}
 
 const SkillCard = ({
     name,
@@ -17,7 +8,7 @@ const SkillCard = ({
     level = "advanced",
     description,
     index = 0,
-}: SkillCardProps) => {
+}) => {
     const levelColors = {
         beginner: "bg-secondary/30",
         intermediate: "bg-accent-alt/30",

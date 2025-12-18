@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Cursor = () => {
-    const cursorRef = useRef<HTMLDivElement>(null);
-    const cursorOuterRef = useRef<HTMLDivElement>(null);
+    const cursorRef = useRef(null);
+    const cursorOuterRef = useRef(null);
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const mousePos = useRef({ x: 0, y: 0 });
@@ -23,7 +23,7 @@ const Cursor = () => {
         if (!cursor || !cursorOuter) return;
 
         // Show cursor on mouse move
-        const handleMouseMove = (e: MouseEvent) => {
+        const handleMouseMove = (e) => {
             mousePos.current = { x: e.clientX, y: e.clientY };
             if (!isVisible) setIsVisible(true);
         };

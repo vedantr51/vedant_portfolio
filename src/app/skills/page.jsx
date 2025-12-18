@@ -6,7 +6,7 @@ import SkillCard from "@/components/SkillCard";
 const skills = [
     {
         name: "React",
-        level: "expert" as const,
+        level: "expert",
         description: "Component architecture, hooks, state management",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#61DAFB]">
@@ -16,7 +16,7 @@ const skills = [
     },
     {
         name: "Next.js",
-        level: "expert" as const,
+        level: "expert",
         description: "App Router, SSR, API routes, optimization",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
@@ -26,7 +26,7 @@ const skills = [
     },
     {
         name: "JavaScript",
-        level: "expert" as const,
+        level: "expert",
         description: "ES6+, async patterns, DOM manipulation",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#F7DF1E]">
@@ -36,7 +36,7 @@ const skills = [
     },
     {
         name: "Java",
-        level: "advanced" as const,
+        level: "advanced",
         description: "OOP, multithreading, enterprise applications",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#ED8B00]">
@@ -46,7 +46,7 @@ const skills = [
     },
     {
         name: "C",
-        level: "advanced" as const,
+        level: "advanced",
         description: "System programming, memory management, pointers",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#A8B9CC]">
@@ -56,7 +56,7 @@ const skills = [
     },
     {
         name: "C++",
-        level: "advanced" as const,
+        level: "advanced",
         description: "OOP, STL, data structures & algorithms",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#00599C]">
@@ -66,7 +66,7 @@ const skills = [
     },
     {
         name: "React Native",
-        level: "advanced" as const,
+        level: "advanced",
         description: "Cross-platform mobile apps, native modules",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#61DAFB]">
@@ -76,17 +76,17 @@ const skills = [
     },
     {
         name: "MongoDB",
-        level: "advanced" as const,
+        level: "advanced",
         description: "NoSQL database, aggregation, indexing",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#47A248]">
-                <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" />
+                <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0011.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" />
             </svg>
         ),
     },
     {
         name: "Tailwind CSS",
-        level: "expert" as const,
+        level: "expert",
         description: "Utility-first styling, custom configurations",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#06B6D4]">
@@ -96,7 +96,7 @@ const skills = [
     },
     {
         name: "Node.js",
-        level: "advanced" as const,
+        level: "advanced",
         description: "REST APIs, Express, backend development",
         icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#339933]">

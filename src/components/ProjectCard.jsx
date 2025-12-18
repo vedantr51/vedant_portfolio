@@ -4,16 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-interface ProjectCardProps {
-    title: string;
-    description: string;
-    image?: string;
-    tags?: string[];
-    href?: string;
-    github?: string;
-    index?: number;
-}
-
 const ProjectCard = ({
     title,
     description,
@@ -22,7 +12,7 @@ const ProjectCard = ({
     href,
     github,
     index = 0,
-}: ProjectCardProps) => {
+}) => {
     const CardWrapper = href ? Link : "div";
     const wrapperProps = href ? { href, target: "_blank", rel: "noopener noreferrer" } : {};
 
@@ -34,7 +24,7 @@ const ProjectCard = ({
             transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut" }}
         >
             <CardWrapper
-                {...(wrapperProps as any)}
+                {...wrapperProps}
                 className="group relative block rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-accent/40 transition-all duration-200"
                 data-cursor-hover
             >

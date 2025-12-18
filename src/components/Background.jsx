@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 const Background = () => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const canvasRef = useRef(null);
     const mousePos = useRef({ x: 0.5, y: 0.5 });
-    const animationRef = useRef<number>(0);
+    const animationRef = useRef(0);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -26,7 +26,7 @@ const Background = () => {
         window.addEventListener("resize", resize);
 
         // Track mouse for parallax
-        const handleMouseMove = (e: MouseEvent) => {
+        const handleMouseMove = (e) => {
             mousePos.current = {
                 x: e.clientX / window.innerWidth,
                 y: e.clientY / window.innerHeight,

@@ -3,15 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface ButtonProps {
-    children: React.ReactNode;
-    href?: string;
-    onClick?: () => void;
-    variant?: "primary" | "secondary";
-    className?: string;
-    external?: boolean;
-}
-
 const Button = ({
     children,
     href,
@@ -19,7 +10,7 @@ const Button = ({
     variant = "primary",
     className = "",
     external = false,
-}: ButtonProps) => {
+}) => {
     const baseStyles =
         "relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-full overflow-hidden transition-all duration-200 group";
 

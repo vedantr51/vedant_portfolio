@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -17,7 +16,7 @@ const inter = Inter({
     display: "swap",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
     title: "Vedant | Frontend Developer",
     description: "Frontend developer specializing in React, Next.js, and modern web technologies. Creating premium digital experiences with clean code and smooth animations.",
     keywords: ["Frontend Developer", "React", "Next.js", "Tailwind CSS", "Web Developer", "Portfolio"],
@@ -29,11 +28,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
             <body className="font-body antialiased min-h-screen bg-background text-primary">
