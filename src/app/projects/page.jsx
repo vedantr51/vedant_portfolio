@@ -1,16 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { projectsVariants, sectionHeaderVariants } from "@/lib/animations";
 
 export default function Projects() {
     return (
         <section className="min-h-screen flex items-center px-6 py-32">
-            <div className="max-w-6xl mx-auto w-full">
+            <motion.div
+                className="max-w-6xl mx-auto w-full"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={projectsVariants.container}
+            >
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    variants={sectionHeaderVariants}
                     className="mb-12 text-center"
                 >
                     <p className="text-accent text-sm font-medium tracking-wide uppercase mb-2">
@@ -25,16 +30,25 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* Empty State */}
+                {/* Empty State - with diagonal reveal animation */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                    variants={projectsVariants.item}
                     className="flex flex-col items-center justify-center py-20"
                 >
-                    <div className="w-24 h-24 mb-6 rounded-2xl bg-surface border border-white/10 flex items-center justify-center">
+                    <motion.div
+                        className="w-24 h-24 mb-6 rounded-2xl bg-surface border border-white/10 flex items-center justify-center"
+                        animate={{
+                            y: [0, -8, 0],
+                            rotate: [0, 2, 0, -2, 0]
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    >
                         <span className="text-4xl">🚀</span>
-                    </div>
+                    </motion.div>
                     <h3 className="font-heading text-xl font-semibold text-primary mb-2">
                         Projects Coming Soon
                     </h3>
@@ -43,7 +57,8 @@ export default function Projects() {
                         Check back soon for exciting projects!
                     </p>
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }
+

@@ -1,16 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { aboutVariants, sectionHeaderVariants } from "@/lib/animations";
 
 export default function About() {
     return (
         <section className="min-h-screen flex items-center px-6 py-32">
-            <div className="max-w-4xl mx-auto">
+            <motion.div
+                className="max-w-4xl mx-auto"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={aboutVariants.container}
+            >
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    variants={sectionHeaderVariants}
                     className="mb-12"
                 >
                     <p className="text-accent text-sm font-medium tracking-wide uppercase mb-2">
@@ -23,13 +28,10 @@ export default function About() {
 
                 {/* Content */}
                 <div className="grid md:grid-cols-2 gap-12">
-                    {/* Left Column - Main Text */}
+                    {/* Left Column - Main Text (slides from left) */}
                     <div className="space-y-6">
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                            variants={aboutVariants.itemLeft}
                             className="text-lg text-secondary leading-relaxed"
                         >
                             I believe great software is invisible. When it works perfectly,
@@ -37,10 +39,7 @@ export default function About() {
                         </motion.p>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
+                            variants={aboutVariants.itemLeft}
                             className="text-lg text-secondary leading-relaxed"
                         >
                             That philosophy drives everything I build. Every animation should feel
@@ -49,10 +48,7 @@ export default function About() {
                         </motion.p>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+                            variants={aboutVariants.itemLeft}
                             className="text-lg text-secondary leading-relaxed"
                         >
                             I specialize in React and the modern frontend ecosystem—not because
@@ -61,14 +57,11 @@ export default function About() {
                         </motion.p>
                     </div>
 
-                    {/* Right Column - Highlights */}
+                    {/* Right Column - Highlights (slides from right) */}
                     <div className="space-y-6">
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
-                            className="p-6 rounded-2xl bg-surface border border-white/5"
+                            variants={aboutVariants.itemRight}
+                            className="p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors duration-200"
                         >
                             <h3 className="font-heading text-lg font-semibold text-primary mb-2">
                                 My Approach
@@ -94,11 +87,8 @@ export default function About() {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
-                            className="p-6 rounded-2xl bg-surface border border-white/5"
+                            variants={aboutVariants.itemRight}
+                            className="p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors duration-200"
                         >
                             <h3 className="font-heading text-lg font-semibold text-primary mb-2">
                                 Currently
@@ -110,7 +100,8 @@ export default function About() {
                         </motion.div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
+

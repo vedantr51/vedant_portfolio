@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
 import Background from "@/components/Background";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -17,13 +18,13 @@ const inter = Inter({
 });
 
 export const metadata = {
-    title: "Vedant | Frontend Developer",
-    description: "Frontend developer specializing in React, Next.js, and modern web technologies. Creating premium digital experiences with clean code and smooth animations.",
-    keywords: ["Frontend Developer", "React", "Next.js", "Tailwind CSS", "Web Developer", "Portfolio"],
+    title: "Vedant | Software Developer",
+    description: "Software developer specializing in React, Next.js, and modern web technologies. Creating premium digital experiences with clean code and smooth animations.",
+    keywords: ["Software Developer", "React", "Next.js", "Tailwind CSS", "Web Developer", "Portfolio"],
     authors: [{ name: "Vedant" }],
     openGraph: {
-        title: "Vedant | Frontend Developer",
-        description: "Frontend developer specializing in React, Next.js, and modern web technologies.",
+        title: "Vedant | Software Developer",
+        description: "Software developer specializing in React, Next.js, and modern web technologies.",
         type: "website",
     },
 };
@@ -38,7 +39,9 @@ export default function RootLayout({ children }) {
                 <main className="relative z-10">
                     {children}
                 </main>
+                <Footer />
             </body>
         </html>
     );
 }
+

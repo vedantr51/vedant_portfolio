@@ -2,11 +2,29 @@
 
 import { motion } from "framer-motion";
 import Button from "@/components/Button";
+import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 export default function Home() {
+    // Track scroll progress for hero exit animation (0-400px scroll range)
+    const scrollProgress = useScrollProgress(0, 400);
+
+    // Calculate transform values based on scroll
+    const scale = 1 - scrollProgress * 0.08; // Scale from 1 to 0.92
+    const opacity = 1 - scrollProgress * 0.6; // Opacity from 1 to 0.4
+    const blur = scrollProgress * 4; // Blur from 0 to 4px
+    const y = scrollProgress * -30; // Move up slightly
+
     return (
         <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-12">
-            <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+                className="max-w-4xl mx-auto text-center"
+                style={{
+                    transform: `scale(${scale}) translateY(${y}px)`,
+                    opacity,
+                    filter: `blur(${blur}px)`,
+                    willChange: 'transform, opacity, filter',
+                }}
+            >
                 {/* Tagline */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -14,7 +32,7 @@ export default function Home() {
                     transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                     className="text-accent text-sm font-medium tracking-wide uppercase mb-4"
                 >
-                    Frontend Developer
+                    Software Developer
                 </motion.p>
 
                 {/* Main Headline */}
@@ -52,28 +70,11 @@ export default function Home() {
                     <Button href="/contact" variant="secondary">
                         Get in Touch
                     </Button>
+                    <Button href="/resume_Vedant.pdf" variant="secondary" external>
+                        View Resume
+                    </Button>
                 </motion.div>
-
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.8 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-6 h-10 rounded-full border-2 border-secondary/30 flex items-start justify-center p-1"
-                    >
-                        <motion.div
-                            animate={{ opacity: [0.5, 1, 0.5] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            className="w-1.5 h-3 bg-accent rounded-full"
-                        />
-                    </motion.div>
-                </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }

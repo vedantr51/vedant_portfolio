@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Button from "@/components/Button";
+import { contactVariants, sectionHeaderVariants } from "@/lib/animations";
 
 const socialLinks = [
     {
@@ -84,12 +85,16 @@ export default function Contact() {
 
     return (
         <section className="min-h-screen flex items-center px-6 py-32">
-            <div className="max-w-4xl mx-auto w-full">
+            <motion.div
+                className="max-w-4xl mx-auto w-full"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={contactVariants.container}
+            >
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    variants={sectionHeaderVariants}
                     className="mb-12 text-center"
                 >
                     <p className="text-accent text-sm font-medium tracking-wide uppercase mb-2">
@@ -107,9 +112,7 @@ export default function Contact() {
                 <div className="grid md:grid-cols-2 gap-12">
                     {/* Contact Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                        variants={contactVariants.item}
                     >
                         {submitted ? (
                             <div className="p-8 rounded-2xl bg-surface border border-accent/30 text-center">
@@ -210,9 +213,7 @@ export default function Contact() {
 
                     {/* Social Links */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
+                        variants={contactVariants.item}
                         className="space-y-6"
                     >
                         <div className="p-6 rounded-2xl bg-surface border border-white/5">
@@ -266,7 +267,7 @@ export default function Contact() {
                         </div>
                     </motion.div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

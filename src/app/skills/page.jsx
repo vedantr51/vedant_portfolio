@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SkillCard from "@/components/SkillCard";
+import { skillsVariants, sectionHeaderVariants } from "@/lib/animations";
 
 const skills = [
     {
@@ -109,12 +110,16 @@ const skills = [
 export default function Skills() {
     return (
         <section className="min-h-screen px-6 py-32">
-            <div className="max-w-6xl mx-auto">
+            <motion.div
+                className="max-w-6xl mx-auto"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={skillsVariants.container}
+            >
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    variants={sectionHeaderVariants}
                     className="mb-12 text-center"
                 >
                     <p className="text-accent text-sm font-medium tracking-wide uppercase mb-2">
@@ -129,26 +134,27 @@ export default function Skills() {
                     </p>
                 </motion.div>
 
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Skills Grid - with staggered pop effect */}
+                <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    variants={skillsVariants.container}
+                >
                     {skills.map((skill, index) => (
-                        <SkillCard
-                            key={skill.name}
-                            name={skill.name}
-                            level={skill.level}
-                            description={skill.description}
-                            icon={<span>{skill.icon}</span>}
-                            index={index}
-                        />
+                        <motion.div key={skill.name} variants={skillsVariants.item}>
+                            <SkillCard
+                                name={skill.name}
+                                level={skill.level}
+                                description={skill.description}
+                                icon={<span>{skill.icon}</span>}
+                                index={index}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Additional Info */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.4, ease: "easeOut" }}
+                    variants={skillsVariants.item}
                     className="mt-16 text-center"
                 >
                     <p className="text-secondary">
@@ -157,7 +163,8 @@ export default function Skills() {
                         <span className="text-accent-alt">WebGL</span> for creative experiences.
                     </p>
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }
+
