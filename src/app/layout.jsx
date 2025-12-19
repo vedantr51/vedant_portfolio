@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
 import Background from "@/components/Background";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
                     {children}
                 </main>
                 <Footer />
+                <Analytics />
             </body>
         </html>
     );
