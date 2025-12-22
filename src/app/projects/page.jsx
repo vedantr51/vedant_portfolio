@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { projectsVariants, sectionHeaderVariants } from "@/lib/animations";
+import ProjectCardGrid from "@/components/ProjectCardGrid";
 
 export default function Projects() {
     return (
@@ -30,33 +31,16 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* Empty State - with diagonal reveal animation */}
-                <motion.div
-                    variants={projectsVariants.item}
-                    className="flex flex-col items-center justify-center py-20"
-                >
-                    <motion.div
-                        className="w-24 h-24 mb-6 rounded-2xl bg-surface border border-white/10 flex items-center justify-center"
-                        animate={{
-                            y: [0, -8, 0],
-                            rotate: [0, 2, 0, -2, 0]
-                        }}
-                        transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    >
-                        <span className="text-4xl">🚀</span>
-                    </motion.div>
-                    <h3 className="font-heading text-xl font-semibold text-primary mb-2">
-                        Projects Coming Soon
-                    </h3>
-                    <p className="text-secondary text-center max-w-md">
-                        I&apos;m currently curating my best work to showcase here.
-                        Check back soon for exciting projects!
-                    </p>
-                </motion.div>
+                {/* Projects Grid */}
+                <ProjectCardGrid projects={[
+                    {
+                        title: "ResumeInsight",
+                        description: "ResumeInsight is an AI-driven resume evaluator that performs structured, senior-level hiring analysis by connecting skills, experience, and role intent to deliver practical, improvement-focused feedback.",
+                        href: "https://ai-resume-reviewer-umber.vercel.app/",
+                        tags: ["Next.js", "AI", "Resume Analysis"],
+                        image: "/images/resumeinsight.png",
+                    }
+                ]} />
             </motion.div>
         </section>
     );
