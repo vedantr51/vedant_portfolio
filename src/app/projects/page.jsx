@@ -39,6 +39,13 @@ export default function Projects() {
                         href: "https://ai-resume-reviewer-umber.vercel.app/",
                         tags: ["Next.js", "AI", "Resume Analysis"],
                         image: "/images/resumeinsight.png",
+                    },
+                    {
+                        title: "TaskFlow",
+                        description: "TaskFlow is a secure, scalable task management application that helps users organize, prioritize, and track their tasks with a clean, intuitive interface designed for productivity and efficiency.",
+                        href: "https://task-flow-six-khaki.vercel.app/",
+                        tags: ["Next.js", "Full-Stack", "Task Management"],
+                        image: "/images/taskflow.png",
                     }
                 ]} />
             </motion.div>
