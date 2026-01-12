@@ -46,6 +46,13 @@ export default function Projects() {
                         href: "https://task-flow-six-khaki.vercel.app/",
                         tags: ["Next.js", "Full-Stack", "Task Management"],
                         image: "/images/taskflow.png",
+                    },
+                    {
+                        title: "DevCanvas",
+                        description: "DevCanvas is a free, open-source tool that transforms your GitHub profile into a beautiful developer portfolio. No signup required — just enter your username and generate an instant, always-fresh portfolio.",
+                        href: "https://devcanvas-iota.vercel.app/",
+                        tags: ["Next.js", "GitHub API", "Portfolio Generator"],
+                        image: "/images/DevCanvas.png",
                     }
                 ]} />
             </motion.div>
